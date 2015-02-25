@@ -1,8 +1,27 @@
 'use strict';
 
 var join = require('path').join;
+var util = require('util');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+
+var message =
+'\n               _oo0oo_' +
+'\n              o8888888o'+
+'\n              88" . "88'+
+'\n              (| -_- |)'+
+'\n              0\\  =  /0'+
+'\n            ___/`---\'\\___'+
+'\n          .\' \\\\|  卍  |// \'. '+
+'\n         \/ \\\\|||  :  |||\/\/ \\'+
+'\n        \/ _||||| -:- |||||- \\'+
+'\n       |   | \\\\\\  -  \/\/\/ |   |'+
+'\n       | \\_|  \'\'\\---\/\'\'  |_\/ |'+
+'\n       \\  .-\\__  \'-\'  ___\/-. \/'+
+'\n     ___\'. .\'  \/--.--\\  \'. .\'___'+
+'\n   ."" \'< \'.___\\_<|>_\/___.\' >\' "".'+
+'\n  | | : `- \\`.;`\\ _ \/`;.`\/ - ` : | |'+
+'\n       佛祖保佑         永無BUG';
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
@@ -31,7 +50,8 @@ module.exports = yeoman.generators.Base.extend({
 
     // welcome message
     if (!this.options['skip-welcome-message']) {
-      this.log(require('yosay')());
+
+      this.log(message);
       this.log(chalk.magenta(
         'Out of the box I include HTML5 Boilerplate, jQuery, and a ' +
         'Gruntfile.js to build your app.'
