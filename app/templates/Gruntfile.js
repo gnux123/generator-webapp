@@ -193,7 +193,7 @@ module.exports = function (grunt) {
     sass: {
       options: {<% if (includeLibSass) { %>
         sourceMap: true,
-        includePaths: ['bower_components']
+        includePaths: ['bower_components','./node_modules/susy/sass','./node_modules/compass-mixins/lib']
         <% } else { %>
         loadPath: 'bower_components'
       <% } %>},

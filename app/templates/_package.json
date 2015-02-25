@@ -22,13 +22,15 @@
     "grunt-modernizr": "^0.5.2",<% } %>
     "grunt-newer": "^0.7.0",
     "grunt-rev": "^0.1.0",<% if (includeSass && includeLibSass) { %>
-    "grunt-sass": "^0.14.0",<% } %>
+    "grunt-sass": "^0.18.0",<% } %>
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.3.0",
     "grunt-wiredep": "^1.7.0",
     "jshint-stylish": "^0.4.0",
     "load-grunt-tasks": "^0.4.0",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "susy": "2.2.2",
+    "compass-mixins": "0.12.3"
   },
   "engines": {
     "node": ">=0.10.0"
