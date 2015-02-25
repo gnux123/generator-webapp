@@ -92,6 +92,10 @@ body {
 }<% } else { %>// bower:scss
 // endbower
 
+@import "compass/reset";
+@import "susy";
+
+
 body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
