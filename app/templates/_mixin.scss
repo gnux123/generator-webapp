@@ -1,0 +1,14 @@
+//font-size translate
+@mixin fontSize($size:16) {
+  font-size: $size#{px}; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+
+//background color
+@mixin backgroundTrans($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}

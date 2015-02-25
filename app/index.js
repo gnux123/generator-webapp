@@ -131,7 +131,12 @@ module.exports = yeoman.generators.Base.extend({
 
   mainStylesheet: function () {
     var css = 'main.' + (this.includeSass ? 's' : '') + 'css';
-    this.template(css, 'app/styles/' + css);
+    var cssPath = 'app/styles/';
+    this.template(css, cssPath + css);
+
+    this.copy('_function.scss', cssPath + '_function.scss');
+    this.copy('_mixin.scss', cssPath + '_mixin.scss');
+    this.copy('_settings.scss', cssPath + '_settings.scss');
   },
 
   writeIndex: function () {

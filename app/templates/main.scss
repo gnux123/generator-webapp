@@ -95,6 +95,10 @@ body {
 @import "compass/reset";
 @import "susy";
 
+@import "_function";
+@import "_mixin";
+@import "_settings";
+
 
 body {
   background: #fafafa;
