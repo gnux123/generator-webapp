@@ -63,20 +63,20 @@ module.exports = yeoman.generators.Base.extend({
       name: 'features',
       message: 'What more would you like?',
       choices: [{
-        name: 'Bootstrap',
-        value: 'includeBootstrap',
-        checked: true
-      },{
         name: 'Sass',
         value: 'includeSass',
-        checked: false
+        checked: true
       },{
         name: 'Modernizr',
         value: 'includeModernizr',
-        checked: false
+        checked: true
       },{
         name: 'font-aweasome',
         value: 'includefontAewasome',
+        checked: false
+      },{
+        name: 'Bootstrap',
+        value: 'includeBootstrap',
         checked: false
       }]
     }, {
@@ -224,7 +224,7 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
     else {
-      this.write('app/scripts/main.js', 'console.log(\'\\\'Allo \\\'Allo!\');');
+      this.write('app/scripts/main.js', 'console.log(\'\\\'佛祖保佑 \\\'永無BUG!\');');
     }
   },
 
