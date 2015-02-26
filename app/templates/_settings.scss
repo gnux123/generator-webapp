@@ -26,9 +26,9 @@ $susy: (
 );
 
 $desktop: (12 1/12 after);
-// $padlet: (8 1/8 after);
+$padlet: (8 1/8 after);
 $mobile: (6 1/6 after);
 
-$break-desktop: 640px; //990px;
-// $break-padlet: 500px;
+$break-desktop: 990px;
+$break-padlet: 640px;
 $break-mobile: 0px;
