@@ -74,6 +74,10 @@ module.exports = yeoman.generators.Base.extend({
         name: 'Modernizr',
         value: 'includeModernizr',
         checked: false
+      },{
+        name: 'font-aweasome',
+        value: 'includefontAewasome',
+        checked: false
       }]
     }, {
       when: function (answers) {
@@ -98,6 +102,7 @@ module.exports = yeoman.generators.Base.extend({
       this.includeSass = hasFeature('includeSass');
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeModernizr = hasFeature('includeModernizr');
+      this.includefontAewasome = hasFeature('includefontAewasome');
 
       this.includeLibSass = answers.libsass;
       this.includeRubySass = !answers.libsass;
@@ -124,6 +129,7 @@ module.exports = yeoman.generators.Base.extend({
       name: this._.slugify(this.appname),
       private: true,
       dependencies: {}
+
     };
 
     if (this.includeBootstrap) {
@@ -135,6 +141,10 @@ module.exports = yeoman.generators.Base.extend({
 
     if (this.includeModernizr) {
       bower.dependencies.modernizr = "~2.8.2";
+    }
+
+    if (this.includefontAewasome) {
+      bower.dependencies.fontawesome = "4.3.0";
     }
 
     this.copy('bowerrc', '.bowerrc');
