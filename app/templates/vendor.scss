@@ -1,0 +1,8 @@
+<% if (includefontAewasome) { %>
+@import "../bower_components/components-font-awesome/scss/font-awesome";
+<% } %>
+<% if (includeSlickCarousel) { %>
+/*---- slick.js Plugin css ----*/
+@import "../bower_components/slick-carousel/slick/slick";
+@import "../bower_components/slick-carousel/slick/slick-theme";
+<% } %>

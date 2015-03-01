@@ -71,9 +71,13 @@ module.exports = yeoman.generators.Base.extend({
         value: 'includeModernizr',
         checked: true
       },{
-        name: 'font-aweasome',
+        name: 'font-aweasome(webFont Icons)',
         value: 'includefontAewasome',
         checked: false
+      },{
+        name: 'slick-carousel(slide Banner effects for responsive)',
+        value: 'includeSlickCarousel',
+        checked: false        
       },{
         name: 'Bootstrap',
         value: 'includeBootstrap',
@@ -103,6 +107,7 @@ module.exports = yeoman.generators.Base.extend({
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeModernizr = hasFeature('includeModernizr');
       this.includefontAewasome = hasFeature('includefontAewasome');
+      this.includeSlickCarousel = hasFeature('includeSlickCarousel');
 
       this.includeLibSass = answers.libsass;
       this.includeRubySass = !answers.libsass;
@@ -128,7 +133,8 @@ module.exports = yeoman.generators.Base.extend({
     var bower = {
       name: this._.slugify(this.appname),
       private: true,
-      dependencies: {}
+      dependencies: {},
+      devDependencies: {}
 
     };
 
@@ -144,7 +150,11 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     if (this.includefontAewasome) {
-      bower.dependencies.fontawesome = "4.3.0";
+      bower.dependencies['components-font-awesome'] = "4.3.0";
+    }
+
+    if (this.includeSlickCarousel) {
+      bower.dependencies['slick-carousel'] = "1.4.1";
     }
 
     this.copy('bowerrc', '.bowerrc');
@@ -167,6 +177,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('_function.scss', cssPath + '_function.scss');
     this.copy('_mixin.scss', cssPath + '_mixin.scss');
     this.copy('_settings.scss', cssPath + '_settings.scss');
+    this.copy('vendor.scss', cssPath + 'vendor.scss');
   },
 
   writeIndex: function () {

@@ -14,7 +14,11 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild --><% if (includeModernizr) { %>
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/vendor.css -->
+    <link rel="stylesheet" href="styles/vendor.css">
+    <!-- endbuild -->    
+    <% if (includeModernizr) { %>
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -79,6 +83,10 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <% if (includeSlickCarousel) { %>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <% } %>
     <!-- endbower -->
     <!-- endbuild -->
 
