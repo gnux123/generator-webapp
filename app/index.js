@@ -75,6 +75,10 @@ module.exports = yeoman.generators.Base.extend({
         value: 'includefontAewasome',
         checked: false
       },{
+        name: 'animate.css(easy use animate)',
+        value: 'includeAnimateCss',
+        checked: false
+      },{
         name: 'slick-carousel(slide Banner effects for responsive)',
         value: 'includeSlickCarousel',
         checked: false        
@@ -108,6 +112,8 @@ module.exports = yeoman.generators.Base.extend({
       this.includeModernizr = hasFeature('includeModernizr');
       this.includefontAewasome = hasFeature('includefontAewasome');
       this.includeSlickCarousel = hasFeature('includeSlickCarousel');
+      this.includeAnimateCss = hasFeature('includeAnimateCss');
+      
 
       this.includeLibSass = answers.libsass;
       this.includeRubySass = !answers.libsass;
@@ -156,6 +162,10 @@ module.exports = yeoman.generators.Base.extend({
     if (this.includeSlickCarousel) {
       bower.dependencies['slick-carousel'] = "1.4.1";
     }
+
+    if (this.includeAnimateCss) {
+      bower.devDependencies['animate.scss'] = "https://github.com/gnux123/animate.scss.git";
+    }    
 
     this.copy('bowerrc', '.bowerrc');
     this.write('bower.json', JSON.stringify(bower, null, 2));

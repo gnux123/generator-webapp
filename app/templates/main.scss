@@ -94,6 +94,10 @@ body {
 @import "compass/reset";
 @import "susy";
 
+<% if (includeAnimateCss) { %>
+@import "bower_components/animate.scss/animate";
+<% } %>
+
 @import "_function";
 @import "_mixin";
 @import "_settings";
