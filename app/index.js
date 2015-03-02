@@ -156,7 +156,7 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     if (this.includefontAewasome) {
-      bower.dependencies['components-font-awesome'] = "4.3.0";
+      bower.devDependencies['font-awesome'] = "https://github.com/gnux123/font-awesome.git";
     }
 
     if (this.includeSlickCarousel) {
