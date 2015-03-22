@@ -71,6 +71,10 @@ module.exports = yeoman.generators.Base.extend({
         value: 'includeModernizr',
         checked: true
       },{
+        name: 'support IE Old Version(IE6 - IE9)',
+        value: 'includeltIE',
+        checked: false
+      },{
         name: 'font-aweasome(webFont Icons)',
         value: 'includefontAewasome',
         checked: false
@@ -110,6 +114,7 @@ module.exports = yeoman.generators.Base.extend({
       this.includeSass = hasFeature('includeSass');
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeModernizr = hasFeature('includeModernizr');
+      this.includeltIE = hasFeature('includeltIE');
       this.includefontAewasome = hasFeature('includefontAewasome');
       this.includeSlickCarousel = hasFeature('includeSlickCarousel');
       this.includeAnimateCss = hasFeature('includeAnimateCss');
@@ -154,6 +159,10 @@ module.exports = yeoman.generators.Base.extend({
     if (this.includeModernizr) {
       bower.dependencies.modernizr = "~2.8.2";
     }
+
+    if (this.includeltIE) {
+      bower.dependencies['lt-ie-9'] = "~0.1.0";
+    }    
 
     if (this.includefontAewasome) {
       bower.devDependencies['font-awesome'] = "https://github.com/gnux123/font-awesome.git";
