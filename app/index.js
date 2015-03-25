@@ -161,7 +161,7 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     if (this.includeltIE) {
-      bower.dependencies['lt-ie-9'] = "~0.1.0";
+      bower.devDependencies['lt-ie-9'] = "~0.1.0";
     }    
 
     if (this.includefontAewasome) {
