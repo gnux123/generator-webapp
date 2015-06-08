@@ -73,6 +73,9 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',<% if (coffee) { %>
           '.tmp/scripts/{,*/}*.js',<% } %>
           '<%%= config.app %>/images/{,*/}*'
+        ],
+        tasks: [
+          'includes:server'
         ]
       }
     },
@@ -132,6 +135,28 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+
+    includes: {
+      build: {
+          cwd: '<%%= config.app %>',
+          src: ['*.html'],
+          dest: '<%%= config.dist %>',
+          options: {
+              flatten: true,
+              includePath: '',
+              banner: ''
+          }
+      },
+      server: {
+          cwd: '<%%= config.app %>',
+          src: ['*.html'],
+          dest: '.tmp/',
+          options: {
+              flatten: true,
+              banner: ''
+          }
+      }
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
@@ -436,6 +461,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-includes');
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -448,6 +474,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'includes:server',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -485,7 +512,8 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
-    'copy:dist',<% if (includeModernizr) { %>
+    'copy:dist',
+    'includes:build',<% if (includeModernizr) { %>
     'modernizr',<% } %>
     'rev',
     'usemin',
